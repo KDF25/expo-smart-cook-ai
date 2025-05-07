@@ -34,7 +34,7 @@ export const useCheckUser = () => {
 				console.log("response", response);
 				setUser(response?.data?.data);
 			}
-			router.push("/auth");
+			router.push("/(tabs)/home");
 		});
 	}, [isAuthenticated, getIdTokenClaims]);
 };

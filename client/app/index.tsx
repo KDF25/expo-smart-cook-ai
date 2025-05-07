@@ -1,7 +1,7 @@
+import { Redirect } from "expo-router";
 import { Text, View } from "react-native";
 
 import { useCheckUser } from "@/src/entities/user";
-import { Redirect } from "expo-router";
 
 export default function Index() {
 	useCheckUser();
@@ -14,7 +14,7 @@ export default function Index() {
 			}}
 		>
 			<Text>Edit app/index.tsx to edit this screen.</Text>
-			{/* <Redirect href={"/auth"}/> */}
+			<Redirect href={"/home"} />
 		</View>
 	);
 }
