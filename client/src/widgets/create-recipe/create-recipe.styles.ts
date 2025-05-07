@@ -8,7 +8,7 @@ const styles = StyleSheet.create({
 		backgroundColor: COLORS.SECONDARY,
 		borderColor: COLORS.PRIMARY,
 		borderRadius: 20,
-		borderWidth: 3,
+		borderWidth: 2,
 		alignItems: "center"
 	},
 	image: {

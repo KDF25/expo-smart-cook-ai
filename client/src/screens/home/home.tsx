@@ -4,6 +4,7 @@ import { SafeAreaView } from "react-native-safe-area-context";
 
 import styles from "./home.styles";
 import { UserContext } from "@/src/shared/context";
+import { Categories } from "@/src/widgets/categories";
 import { CreateRecipe } from "@/src/widgets/create-recipe";
 import { HomeHeader } from "@/src/widgets/home-header";
 
@@ -15,6 +16,7 @@ export const HomeScreen: FC = () => {
 				<View style={styles.container}>
 					<HomeHeader user={user} />
 					<CreateRecipe />
+					<Categories />
 				</View>
 			</ScrollView>
 		</SafeAreaView>
