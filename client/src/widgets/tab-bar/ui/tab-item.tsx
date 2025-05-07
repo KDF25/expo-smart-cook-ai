@@ -1,4 +1,4 @@
-import { Image, Text, View } from "react-native";
+import { Text, View } from "react-native";
 import Icon from "react-native-vector-icons/MaterialIcons";
 
 import styles from "./tab-item.styles";

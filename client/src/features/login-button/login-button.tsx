@@ -1,7 +1,8 @@
 import { useLogto } from "@logto/rn";
 import { FC } from "react";
-import { Text, View } from "react-native";
+import { Text } from "react-native";
 
+import styles from "./login-button.styles";
 import { Button } from "@/src/shared/ui";
 
 export const LoginButton: FC = () => {
@@ -14,7 +15,7 @@ export const LoginButton: FC = () => {
 
 	return (
 		<Button onPress={handleLogin}>
-			<Text> Get Started</Text>
+			<Text style={styles.text}>Get Started</Text>
 		</Button>
 	);
 };

@@ -4,7 +4,7 @@ import { Text, View } from "react-native";
 import { useCheckUser } from "@/src/entities/user";
 
 export default function Index() {
-	useCheckUser();
+	// useCheckUser();
 	return (
 		<View
 			style={{

@@ -8,11 +8,6 @@ const styles = StyleSheet.create({
 		padding: 15,
 		borderRadius: 15,
 		alignItems: "center"
-	},
-	text: {
-		color: COLORS.WHITE,
-		fontSize: 16,
-		fontFamily: "Outfit-Bold"
 	}
 });
 

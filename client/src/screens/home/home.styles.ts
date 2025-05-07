@@ -3,10 +3,14 @@ import { StyleSheet } from "react-native";
 import { COLORS } from "@/src/shared/constants";
 
 const styles = StyleSheet.create({
-	text: {
-		fontFamily: "Outfit-Bold",
-		fontSize: 16,
-		color: COLORS.WHITE
+	wrapper: {
+		flex: 1,
+		backgroundColor: COLORS.WHITE
+	},
+	container: {
+		flex: 1,
+		padding: 20,
+		gap: 10
 	}
 });
 
