@@ -2,7 +2,7 @@ import { FC } from "react";
 import { Text, View } from "react-native";
 
 import styles from "./recipe-action-sheet.styles";
-import { IRecipe, RecipeCard } from "@/src/entities/recipe";
+import { IRecipe, NewRecipeCard } from "@/src/entities/recipe";
 
 interface ICreateRecipeProps {
 	cards: IRecipe[];
@@ -18,7 +18,7 @@ export const RecipeActionSheet: FC<ICreateRecipeProps> = ({
 			<Text style={styles.title}>Choose what to use</Text>
 			<View style={styles.cards}>
 				{cards?.map((card, index) => (
-					<RecipeCard
+					<NewRecipeCard
 						key={index}
 						card={card}
 						onPress={() => {

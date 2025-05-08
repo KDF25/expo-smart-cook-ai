@@ -4,22 +4,35 @@ import { COLORS } from "@/src/shared/constants";
 
 const styles = StyleSheet.create({
 	container: {
-		padding: 20,
+		flex: 1,
+		margin: 5,
+		overflow: "hidden",
+		height: 220,
+		width: "100%",
+		gap: 5,
+		position: "relative",
+		borderRadius: 25,
+		borderWidth: 3,
+		borderColor: COLORS.PRIMARY
+	},
+	image: {
+		width: "100%",
+		height: "100%"
+	},
+	titleWrapper: {
+		position: "absolute",
+		bottom: 0,
+		left: 0,
 		backgroundColor: COLORS.SECONDARY,
-		borderRadius: 20,
-		borderWidth: 1,
-		borderColor: COLORS.PRIMARY,
-		gap: 5
+		opacity: 0.7,
+		paddingVertical: 8,
+		paddingHorizontal: 12,
+		width: "100%"
 	},
 	title: {
-		fontSize: 20,
 		fontFamily: "Outfit-Bold",
-		textAlign: "center"
-	},
-	description: {
-		fontSize: 16,
-		fontFamily: "Outfit-Regular",
-		textAlign: "left"
+		color: COLORS.BLACK,
+		fontSize: 12
 	}
 });
 

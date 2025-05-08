@@ -1,7 +1,5 @@
 import materialIcons from "react-native-vector-icons/glyphmaps/MaterialIcons.json";
 
-// ← важно
-
 export type MaterialIconName = keyof typeof materialIcons;
 
 export interface ITab {

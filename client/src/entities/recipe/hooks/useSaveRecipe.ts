@@ -15,10 +15,6 @@ export const useSaveRecipe = () => {
 			})
 			.catch((error) => {
 				setIsLoading(false);
-				console.error("Error response:", error.response); // Структура ответа с ошибкой
-				console.error("Error message:", error.message); // Сообщение об ошибке
-				console.error("Error status:", error.response?.status); // Статус ошибки (например, 400 или 500)
-				console.error("Error data:", error.response?.data);
 				throw error;
 			});
 	};
