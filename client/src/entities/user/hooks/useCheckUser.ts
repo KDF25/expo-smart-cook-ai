@@ -1,16 +1,15 @@
 import { useLogto } from "@logto/rn";
 import { useRouter } from "expo-router";
-import { useContext, useEffect } from "react";
+import { useEffect } from "react";
 
 import { CreateNewUser, GetUserByEmail } from "../api";
 import { IUser } from "../types";
 
-import { UserContext } from "@/src/shared/context";
+import { useUser } from "./useUser";
 
 export const useCheckUser = () => {
 	const { getIdTokenClaims, isAuthenticated } = useLogto();
-	const { user, setUser } = useContext(UserContext);
-	console.log(isAuthenticated, user);
+	const { setUser } = useUser();
 	const router = useRouter();
 	useEffect(() => {
 		if (!isAuthenticated) return;

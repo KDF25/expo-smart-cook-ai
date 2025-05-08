@@ -1,6 +1,6 @@
 import { FC, useState } from "react";
 
-import { UserContext } from "@/src/shared/context";
+import { UserContext } from "@/src/entities/user/context";
 
 export const withAuth = (Component: FC): FC => {
 	return () => {

@@ -4,25 +4,22 @@ import { COLORS } from "@/src/shared/constants";
 
 const styles = StyleSheet.create({
 	container: {
+		padding: 20,
 		backgroundColor: COLORS.SECONDARY,
-		padding: 5,
-		borderRadius: 40,
-		alignItems: "center",
-		justifyContent: "center",
-		marginRight: 10,
-		gap: 5,
-		width: 100,
-		height: 100,
+		borderRadius: 20,
+		borderWidth: 1,
 		borderColor: COLORS.PRIMARY,
-		borderWidth: 1
+		gap: 5
 	},
-	image: {
-		width: 50,
-		height: 50
+	title: {
+		fontSize: 20,
+		fontFamily: "Outfit-Bold",
+		textAlign: "center"
 	},
-	text: {
+	description: {
+		fontSize: 16,
 		fontFamily: "Outfit-Regular",
-		fontSize: 12
+		textAlign: "left"
 	}
 });
 
