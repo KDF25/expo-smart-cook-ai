@@ -3,7 +3,7 @@ import { useEffect, useRef, useState } from "react";
 import { GetAllRecipes } from "../api";
 import { IRecipe } from "../types";
 
-export const useGetAllRecipes = () => {
+export const useGetAllRecipes = (limit?: number) => {
 	const [data, setData] = useState<IRecipe[]>([]);
 	const [isLoading, setIsLoading] = useState(true);
 	const [isRefreshing, setIsRefreshing] = useState(false);
@@ -17,7 +17,7 @@ export const useGetAllRecipes = () => {
 			} else {
 				setIsLoading(true);
 			}
-			const response = await GetAllRecipes();
+			const response = await GetAllRecipes(limit);
 			if (isMounted.current) {
 				setData(response?.data?.data);
 			}

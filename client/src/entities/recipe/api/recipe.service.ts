@@ -5,7 +5,11 @@ import { baseApi } from "@/src/shared/api";
 export const CreateNewRecipes = (data: IRecipe) =>
 	baseApi.post("/recipes", { data: data });
 
-export const GetAllRecipes = () => baseApi.get(`/recipes?sort[0]=id:desc`);
+export const GetAllRecipes = (limit?: number) =>
+	baseApi.get(
+		`/recipes?sort[0]=id:desc` +
+			`${limit ? `&pagination[limit]=${limit}` : ""}`
+	);
 
 export const GetRecipesByCategory = (category: string) =>
 	baseApi.get(

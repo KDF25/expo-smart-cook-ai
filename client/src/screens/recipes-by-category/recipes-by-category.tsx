@@ -1,11 +1,10 @@
-import { useLocalSearchParams, useRouter } from "expo-router";
+import { useLocalSearchParams } from "expo-router";
 import { FC } from "react";
 import { FlatList, SafeAreaView, Text, View } from "react-native";
 
 import styles from "./recipes-by-category.styles";
 import {
 	EmptyRecipesList,
-	IRecipe,
 	RecipeCard,
 	useGetRecipesByCategory
 } from "@/src/entities/recipe";
@@ -16,14 +15,6 @@ export const RecipesByCategoryScreen: FC = ({}) => {
 	const { data, isLoading, isRefreshing, refetch } = useGetRecipesByCategory(
 		category as string
 	);
-	const router = useRouter();
-
-	const handleOnPress = (card: IRecipe) => {
-		router.push({
-			pathname: "/recipe-info",
-			params: { recipeId: card?.id }
-		});
-	};
 
 	return (
 		<SafeAreaView style={styles.wrapper}>
@@ -41,7 +32,6 @@ export const RecipesByCategoryScreen: FC = ({}) => {
 							<RecipeCard
 								key={index + item?.recipeName}
 								card={item}
-								onPress={() => handleOnPress(item)}
 							/>
 						)}
 					/>

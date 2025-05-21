@@ -1,5 +1,6 @@
 export * from "./new-recipe-card";
 export * from "./recipe-card";
+export * from "./recipe-card-home";
 export * from "./empty-recipes-list";
 export * from "./recipe-step-card";
 export * from "./recipe-info-card";

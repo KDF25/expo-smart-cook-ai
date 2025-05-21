@@ -10,14 +10,17 @@ import {
 
 import { IRecipe } from "../../types";
 
-import styles from "./recipe-card.styles";
+import styles from "./recipe-card-home.styles";
 import { IMAGES } from "@/src/shared/assets";
 
-interface IRecipeCardProps extends TouchableOpacityProps {
+interface IRecipeCardHomeProps extends TouchableOpacityProps {
 	card: IRecipe;
 }
 
-export const RecipeCard: FC<IRecipeCardProps> = ({ card, ...props }) => {
+export const RecipeCardHome: FC<IRecipeCardHomeProps> = ({
+	card,
+	...props
+}) => {
 	const router = useRouter();
 	const handleOnPress = (card: IRecipe) => {
 		router.push({
