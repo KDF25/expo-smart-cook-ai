@@ -6,7 +6,9 @@ import photo1 from "./P1.jpg";
 import photo2 from "./P2.jpg";
 import avatar from "./avatar.png";
 import chef from "./chef.png";
+import cook2 from "./cook2.png";
 import cook from "./cook.png";
+import love from "./love.png";
 
 export const IMAGES = {
 	cartoon1,
@@ -17,5 +19,7 @@ export const IMAGES = {
 	photo2,
 	avatar,
 	cook,
+	cook2,
+	love,
 	chef
 };

@@ -5,5 +5,6 @@ export * from "./useGetRecipeById";
 export * from "./useGetAllRecipes";
 export * from "./useGetAllUserRecipes";
 export * from "./useGetAllUserFavorites";
+export * from "./useGetAllUserFavoritesByIds";
 export * from "./useAddRecipeFavorites";
 export * from "./useRemoveRecipeFavorites";

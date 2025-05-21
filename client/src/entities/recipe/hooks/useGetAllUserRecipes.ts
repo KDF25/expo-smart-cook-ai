@@ -3,7 +3,12 @@ import { useEffect, useRef, useState } from "react";
 import { GetAllUserRecipes } from "../api";
 import { IRecipe } from "../types";
 
-export const useGetAllUserRecipes = (email: string) => {
+interface Props {
+	email: string;
+	skip?: boolean;
+}
+
+export const useGetAllUserRecipes = ({ email, skip }: Props) => {
 	const [data, setData] = useState<IRecipe[]>([]);
 	const [isLoading, setIsLoading] = useState(true);
 	const [isRefreshing, setIsRefreshing] = useState(false);
@@ -34,12 +39,13 @@ export const useGetAllUserRecipes = (email: string) => {
 	};
 
 	useEffect(() => {
+		if (skip) return;
 		isMounted.current = true;
 		fetchData();
 		return () => {
 			isMounted.current = false;
 		};
-	}, []);
+	}, [skip, email]);
 
 	return {
 		data,

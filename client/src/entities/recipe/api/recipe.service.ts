@@ -30,3 +30,6 @@ export const RemoveRecipeFavorites = (id: string) =>
 
 export const GetAllUserFavorites = (email: string) =>
 	baseApi.get(`/user-favorites?filters[userEmail][$eq]=${email}`);
+
+export const GetAllUserFavoritesByIds = (query: string) =>
+	baseApi.get(`/recipes?` + query);

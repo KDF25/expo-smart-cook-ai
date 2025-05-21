@@ -1,19 +1,32 @@
-import { useEffect, useRef, useState } from "react";
+import { useEffect, useMemo, useRef, useState } from "react";
 
-import { GetAllUserFavorites } from "../api";
-import { IFavorite } from "../types";
+import { GetAllUserFavoritesByIds } from "../api";
+import { IRecipe } from "../types";
+
+import { useGetAllUserFavorites } from "./useGetAllUserFavorites";
 
 interface Props {
 	email: string;
 	skip?: boolean;
 }
 
-export const useGetAllUserFavorites = ({ email, skip }: Props) => {
-	const [data, setData] = useState<IFavorite[]>([]);
+export const useGetAllUserFavoritesByIds = ({ email, skip }: Props) => {
+	const { data: favorites } = useGetAllUserFavorites({
+		email: email
+	});
+
+	const [data, setData] = useState<IRecipe[]>([]);
 	const [isLoading, setIsLoading] = useState(true);
 	const [isRefreshing, setIsRefreshing] = useState(false);
 	const [error, setError] = useState<null | string>(null);
 	const isMounted = useRef(true);
+
+	const ids = useMemo(() => {
+		return favorites.map((favorite) => favorite?.recipeDocumentId) || [];
+	}, [favorites]);
+	const query = useMemo(() => {
+		return ids.map((id) => `filter[documentId][$eq]=${id}`).join("&");
+	}, [ids]);
 
 	const fetchData = async (isRefetch = false) => {
 		try {
@@ -22,7 +35,7 @@ export const useGetAllUserFavorites = ({ email, skip }: Props) => {
 			} else {
 				setIsLoading(true);
 			}
-			const response = await GetAllUserFavorites(email);
+			const response = await GetAllUserFavoritesByIds(query);
 			if (isMounted.current) {
 				setData(response?.data?.data);
 			}
@@ -41,12 +54,14 @@ export const useGetAllUserFavorites = ({ email, skip }: Props) => {
 	useEffect(() => {
 		if (skip) return;
 
+		if (ids.length === 0) return;
+
 		isMounted.current = true;
 		fetchData();
 		return () => {
 			isMounted.current = false;
 		};
-	}, [skip, email]);
+	}, [skip]);
 
 	return {
 		data,
