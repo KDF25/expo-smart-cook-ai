@@ -5,6 +5,8 @@ import { baseApi } from "@/src/shared/api";
 export const CreateNewRecipes = (data: IRecipe) =>
 	baseApi.post("/recipes", { data: data });
 
+export const GetAllRecipes = () => baseApi.get(`/recipes?sort[0]=id:desc`);
+
 export const GetRecipesByCategory = (category: string) =>
 	baseApi.get(
 		`/recipes?filters[category][$containsi]=${category}&fields=recipeName,description,id`

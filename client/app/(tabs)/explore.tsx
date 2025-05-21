@@ -1,9 +1,5 @@
-import { Text, View } from 'react-native';
+import { ExploreScreen } from "@/src/screens/explore";
 
 export default function Explore() {
-  return (
-    <View>
-      <Text>Explore</Text>
-    </View>
-  );
+	return <ExploreScreen />;
 }
