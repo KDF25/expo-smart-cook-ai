@@ -1,17 +1,22 @@
 import { FC } from "react";
 import { FlatList, Text, View } from "react-native";
 import { SafeAreaView } from "react-native-safe-area-context";
-import styles from "./cookbook.styles";
 
+import styles from "./cookbook.styles";
 import {
-    EmptyRecipesList,
-    RecipeCard,
-    useGetAllRecipes
+	EmptyRecipesList,
+	RecipeCard,
+	useGetAllUserRecipes
 } from "@/src/entities/recipe";
+import { useUser } from "@/src/entities/user/hooks/useUser";
 import { Loader } from "@/src/shared/ui";
 
 export const CookBookScreen: FC = () => {
-	const { data, isLoading, isRefreshing, refetch } = useGetAllRecipes();
+	const { user } = useUser();
+	const userEmail = user?.email || "damirk355@gmail.com";
+
+	const { data, isLoading, isRefreshing, refetch } =
+		useGetAllUserRecipes(userEmail);
 
 	return (
 		<SafeAreaView style={styles.wrapper}>

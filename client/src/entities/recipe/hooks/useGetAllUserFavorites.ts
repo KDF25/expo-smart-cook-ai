@@ -1,10 +1,10 @@
 import { useEffect, useRef, useState } from "react";
 
-import { GetAllUserRecipes } from "../api";
-import { IRecipe } from "../types";
+import { GetAllUserFavorites } from "../api";
+import { IFavorite } from "../types";
 
-export const useGetAllUserRecipes = (email: string) => {
-	const [data, setData] = useState<IRecipe[]>([]);
+export const useGetAllUserFavorites = (email: string) => {
+	const [data, setData] = useState<IFavorite[]>([]);
 	const [isLoading, setIsLoading] = useState(true);
 	const [isRefreshing, setIsRefreshing] = useState(false);
 	const [error, setError] = useState<null | string>(null);
@@ -17,7 +17,7 @@ export const useGetAllUserRecipes = (email: string) => {
 			} else {
 				setIsLoading(true);
 			}
-			const response = await GetAllUserRecipes(email);
+			const response = await GetAllUserFavorites(email);
 			if (isMounted.current) {
 				setData(response?.data?.data);
 			}

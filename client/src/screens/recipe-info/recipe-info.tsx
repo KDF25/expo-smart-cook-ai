@@ -4,7 +4,7 @@ import { ScrollView, Text, View } from "react-native";
 import { SafeAreaView } from "react-native-safe-area-context";
 
 import styles from "./recipe-info.styles";
-import { RecipeInfoCard, useGetRecipeById } from "@/src/entities/recipe";
+import { useGetRecipeById } from "@/src/entities/recipe";
 import { Loader } from "@/src/shared/ui";
 import { CreateRecipe } from "@/src/widgets/create-recipe";
 import { RecipeHeading } from "@/src/widgets/recipe-heading";
@@ -13,10 +13,8 @@ import { RecipeSteps } from "@/src/widgets/recipe-steps";
 
 export const RecipeInfoScreen: FC = () => {
 	const { recipeId } = useLocalSearchParams();
-	console.log("recipeId", recipeId);
-
 	const { data, isLoading } = useGetRecipeById(recipeId as string);
-	console.log("data", data);
+
 	return (
 		<SafeAreaView style={styles.wrapper}>
 			<View style={styles.container}>

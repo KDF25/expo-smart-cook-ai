@@ -7,6 +7,7 @@ export interface IIngredient {
 }
 
 export interface IRecipe {
+	documentId: string;
 	id?: number;
 	recipeName: string;
 	description: string;
@@ -27,4 +28,10 @@ export interface IInfoData {
 	name: string;
 	unit: string;
 	quantity: number;
+}
+
+export interface IFavorite {
+	userEmail: string;
+	recipeDocumentId: string;
+	documentId?: string;
 }

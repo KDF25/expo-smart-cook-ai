@@ -19,6 +19,14 @@ const styles = StyleSheet.create({
 		textAlign: "center",
 		paddingHorizontal: 10
 	},
+	titleContainer: {
+		flexDirection: "row",
+		gap: 10,
+		alignItems: "center",
+		alignContent: "center",
+		justifyContent: "space-between",
+		height: 50
+	},
 	title: {
 		fontSize: 20,
 		fontFamily: "Outfit-Bold"

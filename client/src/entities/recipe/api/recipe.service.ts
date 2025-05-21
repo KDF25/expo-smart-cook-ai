@@ -1,4 +1,4 @@
-import { IRecipe } from "../types";
+import { IFavorite, IRecipe } from "../types";
 
 import { baseApi } from "@/src/shared/api";
 
@@ -12,9 +12,7 @@ export const GetAllRecipes = (limit?: number) =>
 	);
 
 export const GetAllUserRecipes = (email: string) =>
-	baseApi.get(
-		`/recipes?filters[userEmail][$eq]=${email}&sort[0]=id:desc`
-	);
+	baseApi.get(`/recipes?filters[userEmail][$eq]=${email}&sort[0]=id:desc`);
 
 export const GetRecipesByCategory = (category: string) =>
 	baseApi.get(
@@ -23,3 +21,12 @@ export const GetRecipesByCategory = (category: string) =>
 
 export const GetRecipeById = (id: string | number) =>
 	baseApi.get(`/recipes?filters[id][$eq]=${id}`);
+
+export const AddRecipeFavorites = (data: IFavorite) =>
+	baseApi.post(`/user-favorites`, { data: data });
+
+export const RemoveRecipeFavorites = (id: string) =>
+	baseApi.delete(`/user-favorites/${id}`);
+
+export const GetAllUserFavorites = (email: string) =>
+	baseApi.get(`/user-favorites?filters[userEmail][$eq]=${email}`);
