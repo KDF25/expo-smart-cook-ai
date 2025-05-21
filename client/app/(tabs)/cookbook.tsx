@@ -1,9 +1,5 @@
-import { Text, View } from 'react-native';
+import { CookBookScreen } from "@/src/screens/cookbook";
 
 export default function Cookbook() {
-  return (
-    <View>
-      <Text>Cookbook</Text>
-    </View>
-  );
+	return <CookBookScreen />;
 }

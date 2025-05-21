@@ -11,6 +11,11 @@ export const GetAllRecipes = (limit?: number) =>
 			`${limit ? `&pagination[limit]=${limit}` : ""}`
 	);
 
+export const GetAllUserRecipes = (email: string) =>
+	baseApi.get(
+		`/recipes?filters[userEmail][$eq]=${email}&sort[0]=id:desc`
+	);
+
 export const GetRecipesByCategory = (category: string) =>
 	baseApi.get(
 		`/recipes?filters[category][$containsi]=${category}&fields=recipeName,description,id`
