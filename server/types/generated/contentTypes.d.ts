@@ -436,6 +436,36 @@ export interface ApiRecipeRecipe extends Struct.CollectionTypeSchema {
   };
 }
 
+export interface ApiUserFavoriteUserFavorite
+  extends Struct.CollectionTypeSchema {
+  collectionName: 'user_favorites';
+  info: {
+    displayName: 'UserFavorites';
+    pluralName: 'user-favorites';
+    singularName: 'user-favorite';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    createdAt: Schema.Attribute.DateTime;
+    createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    locale: Schema.Attribute.String & Schema.Attribute.Private;
+    localizations: Schema.Attribute.Relation<
+      'oneToMany',
+      'api::user-favorite.user-favorite'
+    > &
+      Schema.Attribute.Private;
+    publishedAt: Schema.Attribute.DateTime;
+    recipeDocumentId: Schema.Attribute.String;
+    updatedAt: Schema.Attribute.DateTime;
+    updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    userEmail: Schema.Attribute.Email;
+  };
+}
+
 export interface ApiUserListUserList extends Struct.CollectionTypeSchema {
   collectionName: 'user_lists';
   info: {
@@ -979,6 +1009,7 @@ declare module '@strapi/strapi' {
       'admin::user': AdminUser;
       'api::category.category': ApiCategoryCategory;
       'api::recipe.recipe': ApiRecipeRecipe;
+      'api::user-favorite.user-favorite': ApiUserFavoriteUserFavorite;
       'api::user-list.user-list': ApiUserListUserList;
       'plugin::content-releases.release': PluginContentReleasesRelease;
       'plugin::content-releases.release-action': PluginContentReleasesReleaseAction;
