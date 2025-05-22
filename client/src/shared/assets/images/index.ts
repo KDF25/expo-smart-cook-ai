@@ -8,7 +8,10 @@ import avatar from "./avatar.png";
 import chef from "./chef.png";
 import cook2 from "./cook2.png";
 import cook from "./cook.png";
+import feet from "./feet.png";
 import love from "./love.png";
+import progress from "./progress.png";
+import time from "./time.png";
 
 export const IMAGES = {
 	cartoon1,
@@ -21,5 +24,8 @@ export const IMAGES = {
 	cook,
 	cook2,
 	love,
-	chef
+	chef,
+	feet,
+	progress,
+	time
 };

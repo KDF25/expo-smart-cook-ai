@@ -16,7 +16,7 @@ export const GetAllUserRecipes = (email: string) =>
 
 export const GetRecipesByCategory = (category: string) =>
 	baseApi.get(
-		`/recipes?filters[category][$containsi]=${category}&fields=recipeName,description,id`
+		`/recipes?filters[category][$containsi]=${category}&fields=recipeName,description,id&sort[0]=id:desc`
 	);
 
 export const GetRecipeById = (id: string | number) =>

@@ -19,6 +19,7 @@ export interface IRecipe {
 	imagePrompt: string;
 	userEmail?: string;
 	category: string[];
+	createdAt: string;
 }
 
 export type MaterialCommunityIconName = keyof typeof icons;
