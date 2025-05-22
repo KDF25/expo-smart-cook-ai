@@ -14,23 +14,19 @@ export const useCheckUser = () => {
 	useEffect(() => {
 		if (!isAuthenticated) return;
 		getIdTokenClaims().then(async (userData) => {
-			console.log(userData);
 			if (!userData) return;
 			const result = await GetUserByEmail(userData.email!);
-			console.log("result", result?.data?.data);
+
 			if (result?.data?.data?.length) {
-				console.log(1);
 				setUser(result?.data?.data[0]);
 			} else {
-				console.log(2);
 				const newData: IUser = {
 					email: userData.email!,
-					name: userData.name!,
+					name: userData.email?.split("@")[0] || "",
 					picture: userData.picture!
 				};
 
 				const response = await CreateNewUser(newData);
-				console.log("response", response);
 				setUser(response?.data?.data);
 			}
 			router.push("/(tabs)/home");

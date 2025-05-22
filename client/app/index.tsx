@@ -1,10 +1,9 @@
-import { Redirect } from "expo-router";
-import { Text, View } from "react-native";
-
 import { useCheckUser } from "@/src/entities/user";
+import { Redirect } from "expo-router";
+import { View } from "react-native";
 
 export default function Index() {
-	// useCheckUser();
+	useCheckUser();
 	return (
 		<View
 			style={{
@@ -13,7 +12,6 @@ export default function Index() {
 				alignItems: "center"
 			}}
 		>
-			<Text>Edit app/index.tsx to edit this screen.</Text>
 			<Redirect href={"/home"} />
 		</View>
 	);

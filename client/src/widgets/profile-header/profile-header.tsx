@@ -10,6 +10,12 @@ interface IProfileHeaderProps {
 }
 
 export const ProfileHeader: FC<IProfileHeaderProps> = ({ user }) => {
+	const date = new Date(user?.createdAt || "");
+	const readable = date.toLocaleDateString("us-US", {
+		year: "numeric",
+		month: "short",
+		day: "numeric"
+	});
 	return (
 		<View style={styles.container}>
 			<View style={styles.userContainer}>
@@ -22,7 +28,7 @@ export const ProfileHeader: FC<IProfileHeaderProps> = ({ user }) => {
 				<Text style={styles.title}>Hello, {user?.name || "User"}</Text>
 			</View>
 			<Text style={styles.email}>{user?.email || "email@gmail.com"}</Text>
-			<Text style={styles.date}>Joined on:</Text>
+			<Text style={styles.date}>Joined on: {readable}</Text>
 		</View>
 	);
 };

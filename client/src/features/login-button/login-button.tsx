@@ -8,7 +8,7 @@ import { Button } from "@/src/shared/ui";
 export const LoginButton: FC = () => {
 	const { signIn, signOut, isAuthenticated } = useLogto();
 
-	const handleLogin = () => {
+	const handleLogin = async () => {
 		signIn(process.env.EXPO_PUBLIC_LOGTO_REDIRECT_URL || "");
 		// signIn("smartcookai://callback");
 	};
