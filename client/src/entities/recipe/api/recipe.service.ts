@@ -19,8 +19,8 @@ export const GetRecipesByCategory = (category: string) =>
 		`/recipes?filters[category][$containsi]=${category}&fields=recipeName,description,id&sort[0]=id:desc`
 	);
 
-export const GetRecipeById = (id: string | number) =>
-	baseApi.get(`/recipes?filters[id][$eq]=${id}`);
+export const GetRecipeById = (documentId: string) =>
+	baseApi.get(`/recipes?filters[documentId][$eq]=${documentId}`);
 
 export const AddRecipeFavorites = (data: IFavorite) =>
 	baseApi.post(`/user-favorites`, { data: data });

@@ -1,3 +1,4 @@
+import { useRouter } from "expo-router";
 import { FC, useRef, useState } from "react";
 import { Image, Text, TextInput, View } from "react-native";
 import ActionSheet, { ActionSheetRef } from "react-native-actions-sheet";
@@ -20,10 +21,11 @@ export const CreateRecipe: FC = () => {
 	const actionSheetRef = useRef<ActionSheetRef>(null);
 	const { user } = useUser();
 	const { saveRecipe } = useSaveRecipe();
+	const router = useRouter();
 
 	const handlePress = () => {
 		generateRecipe();
-		if (!isLoading) {
+		if (!isLoading && text) {
 			actionSheetRef?.current?.show();
 		}
 	};
@@ -31,12 +33,15 @@ export const CreateRecipe: FC = () => {
 	const handleChooseRecipe = (card: IRecipe) => {
 		saveRecipe({ ...card, userEmail: user?.email || "test@gmail.com" })
 			.then((response) => {
-				console.log("Рецепт успешно сохранён:");
+				router.push({
+					pathname: "/recipe-info",
+					params: { recipeId: response.data.data?.documentId }
+				});
 			})
 			.catch((error) => {
 				console.error("Ошибка при сохранении рецепта:", error);
+				actionSheetRef?.current?.hide();
 			});
-		actionSheetRef?.current?.hide();
 	};
 
 	return (

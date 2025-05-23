@@ -22,7 +22,7 @@ export const RecipeCard: FC<IRecipeCardProps> = ({ card, ...props }) => {
 	const handleOnPress = (card: IRecipe) => {
 		router.push({
 			pathname: "/recipe-info",
-			params: { recipeId: card?.id }
+			params: { recipeId: card?.documentId }
 		});
 	};
 

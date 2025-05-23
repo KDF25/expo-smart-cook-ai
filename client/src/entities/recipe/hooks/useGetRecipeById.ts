@@ -3,7 +3,7 @@ import { useEffect, useState } from "react";
 import { GetRecipeById } from "../api";
 import { IRecipe } from "../types";
 
-export const useGetRecipeById = (id: string | number) => {
+export const useGetRecipeById = (documentId: string) => {
 	const [data, setData] = useState<IRecipe | null>(null);
 	const [isLoading, setIsLoading] = useState(true);
 	const [error, setError] = useState<null | string>(null);
@@ -12,7 +12,7 @@ export const useGetRecipeById = (id: string | number) => {
 		let isMounted = true;
 		const fetchData = async () => {
 			try {
-				const response = await GetRecipeById(id);
+				const response = await GetRecipeById(documentId);
 				if (isMounted) {
 					setData(response?.data?.data?.[0]);
 					setIsLoading(false);
