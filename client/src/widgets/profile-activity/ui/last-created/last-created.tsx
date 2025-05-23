@@ -13,7 +13,11 @@ interface ILastCreatedProps {
 }
 
 export const LastCreated: FC<ILastCreatedProps> = ({ myRecipes }) => {
-	const lastRecipe = myRecipes[myRecipes.length - 1];
+	const lastRecipe = myRecipes.reduce((latest, recipe) => {
+		return new Date(recipe.createdAt) > new Date(latest.createdAt)
+			? recipe
+			: latest;
+	}, myRecipes[0]);
 	const diff = getTimeAgoString(lastRecipe?.createdAt);
 	return (
 		<>

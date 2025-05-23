@@ -33,6 +33,7 @@ export const CreateRecipe: FC = () => {
 	const handleChooseRecipe = (card: IRecipe) => {
 		saveRecipe({ ...card, userEmail: user?.email || "test@gmail.com" })
 			.then((response) => {
+				actionSheetRef?.current?.hide();
 				router.push({
 					pathname: "/recipe-info",
 					params: { recipeId: response.data.data?.documentId }

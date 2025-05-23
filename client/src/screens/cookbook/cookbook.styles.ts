@@ -5,7 +5,8 @@ import { COLORS } from "@/src/shared/constants";
 const styles = StyleSheet.create({
 	wrapper: {
 		flex: 1,
-		backgroundColor: COLORS.WHITE
+		backgroundColor: COLORS.WHITE, 
+		marginBottom: 50
 	},
 	container: {
 		flex: 1,
