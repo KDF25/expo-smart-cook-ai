@@ -1,5 +1,5 @@
 import { FC } from "react";
-import { Text, View } from "react-native";
+import { ScrollView, Text, View } from "react-native";
 
 import styles from "./recipe-action-sheet.styles";
 import { IRecipe, NewRecipeCard } from "@/src/entities/recipe";
@@ -14,19 +14,21 @@ export const RecipeActionSheet: FC<ICreateRecipeProps> = ({
 	onChooseRecipe
 }) => {
 	return (
-		<View style={styles.container}>
-			<Text style={styles.title}>Choose what to use</Text>
-			<View style={styles.cards}>
-				{cards?.map((card, index) => (
-					<NewRecipeCard
-						key={index}
-						card={card}
-						onPress={() => {
-							onChooseRecipe(card);
-						}}
-					/>
-				))}
+		<ScrollView>
+			<View style={styles.container}>
+				<Text style={styles.title}>Choose what to use</Text>
+				<View style={styles.cards}>
+					{cards?.map((card, index) => (
+						<NewRecipeCard
+							key={index}
+							card={card}
+							onPress={() => {
+								onChooseRecipe(card);
+							}}
+						/>
+					))}
+				</View>
 			</View>
-		</View>
+		</ScrollView>
 	);
 };

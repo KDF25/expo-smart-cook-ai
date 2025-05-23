@@ -30,7 +30,7 @@ export const CreateRecipe: FC = () => {
 	};
 
 	const handleChooseRecipe = (card: IRecipe) => {
-		saveRecipe({ ...card, userEmail: user?.email || "damirk355@gmail.com" })
+		saveRecipe({ ...card, userEmail: user?.email || "test@gmail.com" })
 			.then((response) => {
 				console.log("Рецепт успешно сохранён:");
 			})
@@ -57,7 +57,7 @@ export const CreateRecipe: FC = () => {
 			<GenerateRecipe onPress={handlePress} isLoading={isLoading} />
 			<ActionSheet ref={actionSheetRef}>
 				<RecipeActionSheet
-					cards={data || RECIPES_MOCK}
+					cards={data || (RECIPES_MOCK.slice(0, 3) as IRecipe[])}
 					onChooseRecipe={handleChooseRecipe}
 				/>
 			</ActionSheet>

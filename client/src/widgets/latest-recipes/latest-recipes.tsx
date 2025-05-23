@@ -4,7 +4,6 @@ import { ScrollView, Text, View } from "react-native";
 import styles from "./latest-recipes.styles";
 import {
 	EmptyRecipesList,
-	RecipeCard,
 	RecipeCardHome,
 	useGetAllRecipes
 } from "@/src/entities/recipe";
@@ -20,7 +19,7 @@ export const LatestRecipes: FC = () => {
 				<Loader />
 			) : data.length ? (
 				<ScrollView horizontal showsHorizontalScrollIndicator={false}>
-					{[...data, ...data, ...data].map((item, index) => (
+					{data.map((item, index) => (
 						<RecipeCardHome
 							key={index + item?.recipeName}
 							card={item}

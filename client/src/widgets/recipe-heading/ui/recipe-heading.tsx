@@ -1,11 +1,14 @@
 import { FC, useEffect, useState } from "react";
 import { Image, Text, View } from "react-native";
 
-import { IRecipe } from "../../../entities/recipe/types";
 import { RECIPE_INFO_DATA } from "../model";
 
 import styles from "./recipe-heading.styles";
-import { RecipeInfoCard, useGetAllUserFavorites } from "@/src/entities/recipe";
+import {
+	IRecipe,
+	RecipeInfoCard,
+	useGetAllUserFavorites
+} from "@/src/entities/recipe";
 import { useUser } from "@/src/entities/user/hooks/useUser";
 import { FavoritesButton } from "@/src/features/favorites-button";
 import { IMAGES } from "@/src/shared/assets";
@@ -18,9 +21,11 @@ export const RecipeHeading: FC<IRecipeHeadingProps> = ({ card }) => {
 	const { user } = useUser();
 	const [isFavorite, setIsFavorite] = useState<boolean>(false);
 	const data = [card?.calories, card?.cookTime, card?.serveTo];
-	const userEmail = user?.email || "damirk355@gmail.com";
+	const userEmail = user?.email || "test@gmail.com";
 
-	const { data: favorites } = useGetAllUserFavorites(userEmail);
+	const { data: favorites } = useGetAllUserFavorites({
+		email: userEmail
+	});
 
 	const params = {
 		userEmail: userEmail,
@@ -41,7 +46,7 @@ export const RecipeHeading: FC<IRecipeHeadingProps> = ({ card }) => {
 
 	return (
 		<View style={styles.container}>
-			<Image source={IMAGES.photo1} style={styles.image} />
+			<Image source={IMAGES.photo2} style={styles.image} />
 			<Text style={styles.name}>{card?.recipeName}</Text>
 
 			<View style={styles.titleContainer}>

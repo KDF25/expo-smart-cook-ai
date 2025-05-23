@@ -25,7 +25,7 @@ export const useGetAllUserFavoritesByIds = ({ email, skip }: Props) => {
 		return favorites.map((favorite) => favorite?.recipeDocumentId) || [];
 	}, [favorites]);
 	const query = useMemo(() => {
-		return ids.map((id) => `filter[documentId][$eq]=${id}`).join("&");
+		return ids.map((id) => `filters[documentId][$eq]=${id}`).join("&");
 	}, [ids]);
 
 	const fetchData = async (isRefetch = false) => {
@@ -61,7 +61,7 @@ export const useGetAllUserFavoritesByIds = ({ email, skip }: Props) => {
 		return () => {
 			isMounted.current = false;
 		};
-	}, [skip]);
+	}, [skip, ids]);
 
 	return {
 		data,

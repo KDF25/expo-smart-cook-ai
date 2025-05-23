@@ -12,7 +12,7 @@ export default function Index() {
 				alignItems: "center"
 			}}
 		>
-			<Redirect href={"/home"} />
+			<Redirect href={"/auth"} />
 		</View>
 	);
 }

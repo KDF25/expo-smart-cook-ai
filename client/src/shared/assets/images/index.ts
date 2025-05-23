@@ -8,6 +8,7 @@ import avatar from "./avatar.png";
 import chef from "./chef.png";
 import cook2 from "./cook2.png";
 import cook from "./cook.png";
+import diet from "./diet.png";
 import feet from "./feet.png";
 import love from "./love.png";
 import progress from "./progress.png";
@@ -27,5 +28,6 @@ export const IMAGES = {
 	chef,
 	feet,
 	progress,
-	time
+	time,
+	diet
 };

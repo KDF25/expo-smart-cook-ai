@@ -35,7 +35,7 @@ export const RecipeCardHome: FC<IRecipeCardHomeProps> = ({
 			{...props}
 			onPress={() => handleOnPress(card)}
 		>
-			<Image source={IMAGES.photo1} style={styles.image} />
+			<Image source={IMAGES.photo2} style={styles.image} />
 			<View style={styles.titleWrapper}>
 				<Text
 					numberOfLines={1}

@@ -27,7 +27,7 @@ export const ProfileHeader: FC<IProfileHeaderProps> = ({ user }) => {
 				/>
 				<Text style={styles.title}>Hello, {user?.name || "User"}</Text>
 			</View>
-			<Text style={styles.email}>{user?.email || "email@gmail.com"}</Text>
+			<Text style={styles.email}>{user?.email || "test@gmail.com"}</Text>
 			<Text style={styles.date}>Joined on: {readable}</Text>
 		</View>
 	);

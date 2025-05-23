@@ -24,15 +24,12 @@ export const RecipesByCategoryScreen: FC = ({}) => {
 					<Loader />
 				) : data.length ? (
 					<FlatList
-						data={[...data, ...data, ...data]}
+						data={data}
 						numColumns={2}
 						refreshing={isRefreshing}
 						onRefresh={refetch}
-						renderItem={({ item, index }) => (
-							<RecipeCard
-								key={index + item?.recipeName}
-								card={item}
-							/>
+						renderItem={({ item }) => (
+							<RecipeCard key={item?.documentId} card={item} />
 						)}
 					/>
 				) : (

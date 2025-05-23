@@ -1,5 +1,5 @@
 import { FC } from "react";
-import { SafeAreaView, ScrollView, Text, View } from "react-native";
+import { SafeAreaView, ScrollView, View } from "react-native";
 
 import styles from "./profile.styles";
 import {
@@ -16,7 +16,7 @@ import { ProfileHeader } from "@/src/widgets/profile-header";
 
 export const ProfileScreen: FC = () => {
 	const { user } = useUser();
-	const userEmail = user?.email || "damirk355@gmail.com";
+	const userEmail = user?.email || "test@gmail.com";
 	const { data: myRecipes, isLoading: isLoadingMyRecipes } =
 		useGetAllUserRecipes({
 			email: userEmail
@@ -27,8 +27,7 @@ export const ProfileScreen: FC = () => {
 			email: userEmail
 		});
 
-	// const isLoading = isLoadingMyRecipes || isLoadingFavorites;
-	const isLoading = false;
+	const isLoading = isLoadingMyRecipes || isLoadingFavorites;
 
 	return (
 		<SafeAreaView style={styles.wrapper}>

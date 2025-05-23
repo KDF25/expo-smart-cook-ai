@@ -20,7 +20,7 @@ export const CookBookScreen: FC = () => {
 		ENUM_COOKBOOK_TABS.MY_RECIPES
 	);
 
-	const userEmail = user?.email || "damirk355@gmail.com";
+	const userEmail = user?.email || "test@gmail.com";
 
 	const {
 		data: myRecipes,
@@ -63,7 +63,6 @@ export const CookBookScreen: FC = () => {
 		default:
 			break;
 	}
-
 	return (
 		<SafeAreaView style={styles.wrapper}>
 			<View style={styles.container}>
@@ -77,11 +76,8 @@ export const CookBookScreen: FC = () => {
 						numColumns={2}
 						refreshing={isRefreshing}
 						onRefresh={refetch}
-						renderItem={({ item, index }) => (
-							<RecipeCard
-								key={index + item?.recipeName}
-								card={item}
-							/>
+						renderItem={({ item }) => (
+							<RecipeCard key={item?.documentId} card={item} />
 						)}
 					/>
 				) : (

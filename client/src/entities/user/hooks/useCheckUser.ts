@@ -11,12 +11,15 @@ export const useCheckUser = () => {
 	const { getIdTokenClaims, isAuthenticated } = useLogto();
 	const { setUser } = useUser();
 	const router = useRouter();
+	console.log("isAuthenticated", isAuthenticated);
 	useEffect(() => {
 		if (!isAuthenticated) return;
 		getIdTokenClaims().then(async (userData) => {
+			console.log("userData", userData);
 			if (!userData) return;
+			console.log("userData.email", userData.email);
 			const result = await GetUserByEmail(userData.email!);
-
+			console.log("result", result);
 			if (result?.data?.data?.length) {
 				setUser(result?.data?.data[0]);
 			} else {
