@@ -19,7 +19,6 @@ export const CreateRecipe: FC = () => {
 	const { data, isLoading, generateRecipe } = useGenerateRecipe(text);
 	const actionSheetRef = useRef<ActionSheetRef>(null);
 	const { user } = useUser();
-	console.log("data", data);
 	const { saveRecipe } = useSaveRecipe();
 
 	const handlePress = () => {
