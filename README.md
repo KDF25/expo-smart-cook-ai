@@ -19,15 +19,15 @@ Click the link above to see the app in action.
 <table>
   <tr>
     <td align="center">
-      <img src="./demo/screen-home.png" width="80%"/><br/>
+      <img src="./demo/screen-home.PNG" width="80%"/><br/>
       <strong>🏠 Home Screen</strong>
     </td>
     <td align="center">
-      <img src="./demo/screen-recipe-info-1.png" width="80%"/><br/>
+      <img src="./demo/screen-recipe-info-1.PNG" width="80%"/><br/>
       <strong>📖 Recipes Screen</strong>
     </td>
     <td align="center">
-      <img src="./demo/screen-profile-1.png" width="80%"/><br/>
+      <img src="./demo/screen-profile-1.PNG" width="80%"/><br/>
       <strong>👤 Profile Screen</strong>
     </td>
   </tr>
